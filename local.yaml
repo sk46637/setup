@@ -1,0 +1,26 @@
+- hosts: localhost
+  pre_tasks:
+    - name: "reflector"
+      pacman:
+        name: reflector
+        state: latest
+      tags: 
+        - fast
+        - full
+
+    - name: "update mirrors"
+      shell: reflector --save /etc/pacman.d/mirrorlist --protocol https --country 'Poland'
+      tags: 
+        - fast
+        - full
+    - name: "update pacman"
+      pacman:
+        update_cache: yes
+        upgrade: yes
+      tags: 
+        - fast
+        - full
+  tasks:
+    - include: tasks/nvim.yaml
+    - include: tasks/zsh.yaml
+    - include: tasks/productivity.yaml

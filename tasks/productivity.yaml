@@ -1,0 +1,14 @@
+- name: instolin nice things
+  pacman:
+    name: [tldr, ripgrep, fzf, tmux, lazygit]
+    state: latest
+  tags:
+    - fast
+    - full
+- name: install nicert thongs
+  pacman:
+    name: [gimp, chromium, wireshark-qt, wireshark-cli]
+    state: latest
+  tags:
+  - full
+

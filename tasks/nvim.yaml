@@ -1,0 +1,19 @@
+- name: Remove neovim
+  shell: rm -rf ~/neovim
+  tags:
+    - fast
+    - full
+- name: dePacman neovim
+  pacman:
+    name: neovim
+    state: removed
+  tags:
+    - fast
+    - full
+- name: Get best LSP
+  pacman:
+    name: neovim
+    state: latest
+  tags:
+    - fast
+    - full
